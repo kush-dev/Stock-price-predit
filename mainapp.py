@@ -1,6 +1,6 @@
-pip install pandas_datareader
-pip install numpy
-pip install yfinance
+!pip install pandas_datareader
+!pip install numpy
+!pip install yfinance
 
 import pandas as pd
 import numpy as np
