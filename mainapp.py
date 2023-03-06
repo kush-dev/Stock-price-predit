@@ -29,7 +29,7 @@ for i in range(total_tasks):
         ticker_to_file = {'TSLA': 'tsla.py', 'GOOG': 'google.py','AAPL': 'apple.py','META': 'meta.py','AMZN': 'amzn.py'}
         st.empty()
         selected_ticker = st.sidebar.selectbox('Pick your Stock Ticker', list(ticker_to_file.keys()),key='ticker1')
-        df=yf.download(selected_ticker)
+        df=yf.download(selected_ticker,start_date,end_date)
         progress_bar.progress(i+20)
 
 
