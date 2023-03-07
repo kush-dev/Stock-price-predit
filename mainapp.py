@@ -14,7 +14,7 @@ from datetime import datetime
 
 
 accuracy = random.uniform(88,96)
-start_date = st.sidebar.date_input("Start date", datetime(2022,10, 25))
+start_date = st.sidebar.date_input("Start date", datetime(2021-01-01))
 end_date = st.sidebar.date_input("End date: Do not Modify Date is upto Current stream", datetime(2023,3,5))
 total_tasks = 100
 
