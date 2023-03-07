@@ -14,8 +14,8 @@ from datetime import datetime
 
 
 accuracy = random.uniform(88,96)
-start_date = st.sidebar.date_input("Start date", datetime(2022, 10, 25))
-end_date = st.sidebar.date_input("End date", datetime(2023, 3, 5))
+start_date = st.sidebar.date_input("Start date", datetime(2022,10, 25))
+end_date = st.sidebar.date_input("End date", datetime(2023,3,5))
 total_tasks = 100
 
 progress_bar = st.progress(0)
