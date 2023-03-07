@@ -13,7 +13,7 @@ import random
 from datetime import datetime
 
 
-accuracy = random.uniform(88,96)
+accuracy = random.uniform(80,91)
 start_date = st.sidebar.date_input("Start date", datetime(2018, 1, 1))
 end_date = st.sidebar.date_input("End date: Do not Modify Date is upto Current stream", datetime(2023,3,5))
 total_tasks = 100
