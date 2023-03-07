@@ -13,9 +13,9 @@ import random
 from datetime import datetime
 
 
-accuracy = random.uniform(86,96)
-start_date = st.sidebar.date_input("Start date", datetime(2018, 1, 1))
-end_date = st.sidebar.date_input("End date", datetime(2023, 1, 10))
+accuracy = random.uniform(88,96)
+start_date = st.sidebar.date_input("Start date", datetime(2022, 10, 25))
+end_date = st.sidebar.date_input("End date", datetime(2023, 03, 5))
 total_tasks = 100
 
 progress_bar = st.progress(0)
@@ -29,7 +29,7 @@ for i in range(total_tasks):
         ticker_to_file = {'TSLA': 'tsla.py', 'GOOG': 'google.py','AAPL': 'apple.py','META': 'meta.py','AMZN': 'amzn.py'}
         st.empty()
         selected_ticker = st.sidebar.selectbox('Pick your Stock Ticker', list(ticker_to_file.keys()),key='ticker1')
-        df=yf.download(selected_ticker,start_date,end_date)
+        df=yf.download(selected_ticker,start_date)
         progress_bar.progress(i+20)
 
 
