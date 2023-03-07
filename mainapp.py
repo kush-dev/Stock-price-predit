@@ -12,7 +12,7 @@ from datetime import datetime
 
 
 accuracy = random.uniform(86,96)
-start_date = st.sidebar.date_input("Start date", datetime(2018, 1, 1))
+start_date = st.sidebar.date_input("Start date", datetime(2022, 10, 01))
 end_date = st.sidebar.date_input("End date", datetime(2023, 1, 10))
 total_tasks = 100
 

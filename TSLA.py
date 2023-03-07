@@ -39,10 +39,13 @@ def str_to_datetime(s):
   year, month, day = int(split[0]), int(split[1]), int(split[2])
   return datetime.datetime(year=year, month=month, day=day)
 
-datetime_object = str_to_datetime('1986-03-19')
+datetime_object = str_to_datetime('2000-03-19')
 datetime_object
 
 df
+
+
+
 
 df.index = df.pop('Date')
 df
@@ -155,7 +158,7 @@ model.compile(loss='mse',
               optimizer=Adam(learning_rate=0.001),
               metrics=['mean_absolute_error'])
 
-model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=100)
+model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=100) # Model training using fit function
 
 
 
