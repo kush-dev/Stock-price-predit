@@ -234,6 +234,37 @@ for i in range(total_tasks):
               st.pyplot(fig)
               
               st.write("AMAZON Predictions completed!")
+                
+          elif 'AMZN' in selected_ticker:
+            
+              from AMZN import dates_train, y_train, dates_val, y_val, dates_test, y_test
+              from AMZN import  train_predictions,val_predictions,test_predictions,recursive_dates,recursive_predictions
+              st.subheader('Train,Validation and Test Graph')
+              fig=plt.figure(figsize=(12,7))
+              plt.plot(dates_train, y_train)
+              plt.plot(dates_val, y_val)
+              plt.plot(dates_test, y_test)
+              plt.legend(['Train', 'Validation', 'Test'])
+              st.pyplot(fig)
+
+
+              st.subheader('Recursive Predictions')
+              fig=plt.figure(figsize=(12,6))
+              plt.plot(dates_train, train_predictions)
+              plt.plot(dates_train, y_train)
+              plt.plot(dates_val, val_predictions)
+              plt.plot(dates_val, y_val)
+              
+              plt.plot(recursive_dates, recursive_predictions)
+              plt.legend(['Training Predictions', 
+                  'Training Observations',
+                  'Validation Predictions', 
+                  'Validation Observations',
+                  
+                  'Recursive Predictions'])
+              st.pyplot(fig)
+              
+              st.write("EBAY Predictions completed!")
                    
       
         progress_bar.progress(i+100)     
