@@ -1,5 +1,3 @@
-
-
 import pandas as pd
 import numpy as np
 import pandas_datareader as pdr
@@ -13,9 +11,9 @@ import random
 from datetime import datetime
 
 
-accuracy = random.uniform(80,91)
+accuracy = random.uniform(86,96)
 start_date = st.sidebar.date_input("Start date", datetime(2018, 1, 1))
-end_date = st.sidebar.date_input("End date: Do not Modify Date is upto Current stream", datetime(2023,3,5))
+end_date = st.sidebar.date_input("End date", datetime(2023, 1, 10))
 total_tasks = 100
 
 progress_bar = st.progress(0)
@@ -26,10 +24,10 @@ for i in range(total_tasks):
         progress_bar.progress(0)
       
         st.title('Stock Price Prediction')
-        ticker_to_file = {'TSLA': 'tsla.py', 'GOOG': 'google.py','AAPL': 'apple.py','META': 'meta.py','AMZN': 'amzn.py'}
+        ticker_to_file = {'TSLA': 'tsla.py', 'GOOG': 'google.py','AAPL': 'apple.py','META': 'meta.py','AMZN': 'amzn.py','EBAY': 'EBAY.py'}
         st.empty()
         selected_ticker = st.sidebar.selectbox('Pick your Stock Ticker', list(ticker_to_file.keys()),key='ticker1')
-        df=yf.download(selected_ticker,start_date)
+        df=yf.download(selected_ticker,start_date,end_date)
         progress_bar.progress(i+20)
 
 
@@ -67,6 +65,7 @@ for i in range(total_tasks):
         progress_bar.progress(i+40)
         import META
         import AMZN
+        import EBAY
         progress_bar.progress(i+60)
         if 'TSLA' in selected_ticker:
             
@@ -204,41 +203,10 @@ for i in range(total_tasks):
               st.write("FACEBOOK Predictions completed!")
               
               
-        elif 'AMZN' in selected_ticker:
+        elif 'EBAY' in selected_ticker:
             
-              from AMZN import dates_train, y_train, dates_val, y_val, dates_test, y_test
-              from AMZN import  train_predictions,val_predictions,test_predictions,recursive_dates,recursive_predictions
-              st.subheader('Train,Validation and Test Graph')
-              fig=plt.figure(figsize=(12,7))
-              plt.plot(dates_train, y_train)
-              plt.plot(dates_val, y_val)
-              plt.plot(dates_test, y_test)
-              plt.legend(['Train', 'Validation', 'Test'])
-              st.pyplot(fig)
-
-
-              st.subheader('Recursive Predictions')
-              fig=plt.figure(figsize=(12,6))
-              plt.plot(dates_train, train_predictions)
-              plt.plot(dates_train, y_train)
-              plt.plot(dates_val, val_predictions)
-              plt.plot(dates_val, y_val)
-              
-              plt.plot(recursive_dates, recursive_predictions)
-              plt.legend(['Training Predictions', 
-                  'Training Observations',
-                  'Validation Predictions', 
-                  'Validation Observations',
-                  
-                  'Recursive Predictions'])
-              st.pyplot(fig)
-              
-              st.write("AMAZON Predictions completed!")
-                
-         elif 'EBAY' in selected_ticker:
-            
-              from AMZN import dates_train, y_train, dates_val, y_val, dates_test, y_test
-              from AMZN import  train_predictions,val_predictions,test_predictions,recursive_dates,recursive_predictions
+              from EBAY import dates_train, y_train, dates_val, y_val, dates_test, y_test
+              from EBAY import  train_predictions,val_predictions,test_predictions,recursive_dates,recursive_predictions
               st.subheader('Train,Validation and Test Graph')
               fig=plt.figure(figsize=(12,7))
               plt.plot(dates_train, y_train)
