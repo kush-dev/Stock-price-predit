@@ -235,7 +235,7 @@ for i in range(total_tasks):
               
               st.write("AMAZON Predictions completed!")
                 
-          elif 'AMZN' in selected_ticker:
+         elif 'EBAY' in selected_ticker:
             
               from AMZN import dates_train, y_train, dates_val, y_val, dates_test, y_test
               from AMZN import  train_predictions,val_predictions,test_predictions,recursive_dates,recursive_predictions
